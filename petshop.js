@@ -8,20 +8,23 @@ let bancoDados = fs.readFileSync('./bancoDados.json', 'utf-8');
 bancoDados = JSON.parse(bancoDados);
 
 const petshop = {//Estou passando todos os metodos como modulo
-    
-    atualizarBanco:() => {
+
+    atualizarBanco: () => {
         let petsAtualizado = JSON.stringify(bancoDados, null, 2);
 
         fs.writeFileSync('bancoDados.json', petsAtualizado, 'utf-8');
     },
     listarPets: () => {
-        for (let pet of bancoDados.pets) {
-            console.log(`${pet.nome},${pet.idade + " anos"},${pet.tipo},${pet.raca}, ${pet.peso + " Kg"}`);
 
-            (pet.vacinado) ? console.log("vacinado;\n") : console.log("não vacinado;\n");
-            //(parametro a ser estudado) ? alternativa_se_verdadeiro : altervativa_se_falso;
+        let textoListarPets = "PETSHOP \n";
+        bancoDados.pets.forEach((pet) => {
 
-        }
+            textoListarPets += (`${pet.nome}, ${pet.idade} anos, ${pet.tipo}, ${pet.raca}, ${(pet.vacinado) ? 'vacinado' : 'não vacinado'} \n`);
+            pet.servicos.forEach((servico) => {
+                textoListarPets += (`${servico.data} - ${servico.nome}`);
+            })
+        })
+        return textoListarPets;
     },
 
     vacinarPet: (pet) => {
@@ -39,7 +42,7 @@ const petshop = {//Estou passando todos os metodos como modulo
             tipoServ: 'corte de unhas',
             data: moment().format('DD-MM-YYYY')
         });
-        atualizarBanco();
+        petshop.atualizarBanco();
         console.log(`${pet.servicos.data} : ${pet.nome} está de unhas aparadas!`);
     },
 
@@ -76,19 +79,25 @@ const petshop = {//Estou passando todos os metodos como modulo
         }
 
         bancoDados.pets.push(novoPet);
-        atualizarBanco();
-
-
+        petshop.atualizarBanco();
     },
     darBanhoPet: (pet) => {
         pet.servicos.push('banho');
-        atualizarBanco();
+        petshop.atualizarBanco();
         console.log(`O pet ${pet.nome} foi realizado o banho`);
     },
     tosarPet: (pet) => {
         pet.servicos.push('tosa');
-        atualizarBanco();
+        petshop.atualizarBanco();
         console.log(`O pet ${pet.nome} esta com o cabelinho na régua`);
+    },
+    buscarPet: (nomePet) => {
+
+        let petEncontrado = bancoDados.pets.find((pet) => {
+            return pet.nome == nomePet;
+        });
+    
+        return petEncontrado ? petEncontrado : `Nenhum pet encontrado com nome ${nomePet}`;
     },
 
     filtrarTipoPet: (tipoPet) => {
