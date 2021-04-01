@@ -7,8 +7,9 @@ let bancoDados = fs.readFileSync('./bancoDados.json', 'utf-8');
 
 bancoDados = JSON.parse(bancoDados);
 
-const petshop = {
-    atualizarBanco = () => {
+const petshop = {//Estou passando todos os metodos como modulo
+    
+    atualizarBanco:() => {
         let petsAtualizado = JSON.stringify(bancoDados, null, 2);
 
         fs.writeFileSync('bancoDados.json', petsAtualizado, 'utf-8');
