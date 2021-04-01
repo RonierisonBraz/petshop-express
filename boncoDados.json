@@ -1,0 +1,87 @@
+{
+    "pets": [
+      {
+        "nome": "Melissa",
+        "tipo": "cachorro",
+        "idade": 4,
+        "raca": "Vira-lata",
+        "peso": 8,
+        "tutor": "Thais",
+        "conntato": "(81) 98888-8888",
+        "vacinado": false,
+        "servicos": [
+          "banho",
+          "tosa"
+        ]
+      },
+      {
+        "nome": "Preta",
+        "tipo": "cachorro",
+        "idade": 3,
+        "raca": "Vira-lata",
+        "peso": 6,
+        "tutor": "Thais",
+        "conntato": "(81) 98888-8888",
+        "vacinado": false,
+        "servicos": [
+          "banho",
+          "tosa"
+        ]
+      },
+      {
+        "nome": "Fany",
+        "tipo": "cachorro",
+        "idade": 7,
+        "raca": "Vira-lata",
+        "peso": 6,
+        "tutor": "Thais",
+        "conntato": "(81) 98888-8888",
+        "vacinado": false,
+        "servicos": [
+          "banho",
+          "tosa"
+        ]
+      },
+      {
+        "nome": "salen",
+        "tipo": "gato",
+        "idade": 7,
+        "raca": "bruxo",
+        "peso": 7,
+        "tutor": "thamires",
+        "contato": "81 88999-9999",
+        "vacinado": true,
+        "servicos": [
+          "banho"
+        ]
+      },
+      {
+        "nome": "Coragem",
+        "tipo": "cachorro",
+        "idade": 7,
+        "raca": "desenho",
+        "peso": 7,
+        "tutor": "thamires",
+        "contato": "81 88999-9999",
+        "vacinado": true,
+        "servicos": [
+          "tosa"
+        ]
+      },
+      {
+        "nome": "Coragem-2",
+        "tipo": "cachorro",
+        "idade": 7,
+        "raca": "desenho",
+        "peso": 7,
+        "tutor": "thamires",
+        "contato": "81 88999-9999",
+        "vacinado": true,
+        "servicos": [
+          "tosa",
+          "aparar unhas",
+          "aparar unhas"
+        ]
+      }
+    ]
+  }
